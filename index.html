@@ -8,50 +8,74 @@
 </head>
 <body>
     <main class="jogo">
-        <h1>ADIVINHE O NÚMERO</h1>
-        <p id="mensagem">Escolha uma dificuldade para começar</p>
-
-        <label for="dificuldade">Dificuldade</label>
-        <select id="dificuldade">
-            <option value="10">Fácil — 1 a 10</option>
-            <option value="50">Médio — 1 a 50</option>
-            <option value="100">Difícil — 1 a 100</option>
-        </select>
-
-        <div class="informacoes">
-            <div>
-                <span>Tentativas</span>
-                <strong id="tentativas">0</strong>
-            </div>
-            <div>
-                <span>Pontuação</span>
-                <strong id="pontuacao">0</strong>
-            </div>
-            <div>
-                <span>Recorde</span>
-                <strong id="recorde">0</strong>
-            </div>
-        </div>
-
-        <input id="palpite" type="number" placeholder="Digite um número" min="1">
-
-        <button id="adivinhar">ADIVINHAR</button>
-        <button id="novoJogo">NOVO JOGO</button>
-
-        <section id="ranking">
-            <h2>TOP 5</h2>
-            <div id="listaRanking">
-                <p>Nenhuma partida vencida ainda.</p>
-            </div>
+        <section id="inicio" class="tela">
+            <div class="icone">?</div>
+            <h1>ADIVINHE O NÚMERO</h1>
+            <p>Será que você consegue descobrir o número secreto?</p>
+            <button id="jogarAgora">JOGAR AGORA</button>
         </section>
 
-        <section id="nomeArea" class="nome-area">
-            <h2>Você acertou!</h2>
-            <p>Digite seu nome para entrar no ranking:</p>
+        <section id="game" class="tela escondida">
+            <h1>ADIVINHE O NÚMERO</h1>
+            <p id="mensagem">Escolha uma dificuldade para começar.</p>
 
-            <input id="nomeJogador" type="text" placeholder="Seu nome" maxlength="15">
+            <label for="dificuldade">Dificuldade</label>
+            <select id="dificuldade">
+                <option value="10">Fácil — 1 a 10</option>
+                <option value="50">Médio — 1 a 50</option>
+                <option value="100">Difícil — 1 a 100</option>
+            </select>
 
-            <button id="salvarNome">ENTRAR NO RANKING</button>
+            <div class="informacoes">
+                <div>
+                    <span>Tentativas</span>
+                    <strong id="tentativas">0</strong>
+                </div>
+                <div>
+                    <span>Pontuação</span>
+                    <strong id="pontuacao">0</strong>
+                </div>
+                <div>
+                    <span>Recorde</span>
+                    <strong id="recorde">0</strong>
+                </div>
+            </div>
+
+            <input id="palpite" type="number" placeholder="Digite um número" min="1">
+
+            <button id="adivinhar">ADIVINHAR</button>
+            <button id="novoJogo">NOVO JOGO</button>
+
+            <section class="estatisticas">
+                <div>
+                    <span>Partidas</span>
+                    <strong id="partidas">0</strong>
+                </div>
+                <div>
+                    <span>Vitórias</span>
+                    <strong id="vitorias">0</strong>
+                </div>
+                <div>
+                    <span>Melhor da sessão</span>
+                    <strong id="melhorSessao">0</strong>
+                </div>
+            </section>
+
+            <section id="ranking">
+                <h2>TOP 5</h2>
+                <div id="listaRanking">
+                    <p>Nenhuma partida vencida ainda.</p>
+                </div>
+            </section>
+
+            <section id="nomeArea" class="nome-area">
+                <h2>Você acertou!</h2>
+                <p>Digite seu nome para entrar no ranking:</p>
+                <input id="nomeJogador" type="text" placeholder="Seu nome" maxlength="15">
+                <button id="salvarNome">ENTRAR NO RANKING</button>
+            </section>
+
+            <button id="voltarInicio" class="botao-secundario">VOLTAR AO INÍCIO</button>
         </section>
     </main>
 

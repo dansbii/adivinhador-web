@@ -3,7 +3,12 @@ let tentativas = 0;
 let pontuacao = 0;
 let jogoAtivo = false;
 let pontuacaoPendente = 0;
+let melhorSessao = 0;
 
+const inicio = document.getElementById("inicio");
+const game = document.getElementById("game");
+const jogarAgora = document.getElementById("jogarAgora");
+const voltarInicio = document.getElementById("voltarInicio");
 const dificuldade = document.getElementById("dificuldade");
 const palpite = document.getElementById("palpite");
 const adivinhar = document.getElementById("adivinhar");
@@ -12,6 +17,9 @@ const mensagem = document.getElementById("mensagem");
 const tentativasTexto = document.getElementById("tentativas");
 const pontuacaoTexto = document.getElementById("pontuacao");
 const recordeTexto = document.getElementById("recorde");
+const partidasTexto = document.getElementById("partidas");
+const vitoriasTexto = document.getElementById("vitorias");
+const melhorSessaoTexto = document.getElementById("melhorSessao");
 const listaRanking = document.getElementById("listaRanking");
 const nomeArea = document.getElementById("nomeArea");
 const nomeJogador = document.getElementById("nomeJogador");
@@ -19,8 +27,23 @@ const salvarNome = document.getElementById("salvarNome");
 
 let recorde = Number(localStorage.getItem("recorde")) || 0;
 let ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+let partidas = Number(localStorage.getItem("partidas")) || 0;
+let vitorias = Number(localStorage.getItem("vitorias")) || 0;
 
 recordeTexto.textContent = recorde;
+partidasTexto.textContent = partidas;
+vitoriasTexto.textContent = vitorias;
+
+function mostrarJogo() {
+    inicio.classList.add("escondida");
+    game.classList.remove("escondida");
+    iniciarJogo();
+}
+
+function mostrarInicio() {
+    game.classList.add("escondida");
+    inicio.classList.remove("escondida");
+}
 
 function iniciarJogo() {
     const maximo = Number(dificuldade.value);
@@ -80,10 +103,24 @@ function fazerPalpite() {
 
         jogoAtivo = false;
 
+        partidas++;
+        vitorias++;
+
+        localStorage.setItem("partidas", partidas);
+        localStorage.setItem("vitorias", vitorias);
+
+        partidasTexto.textContent = partidas;
+        vitoriasTexto.textContent = vitorias;
+
         if (pontuacao > recorde) {
             recorde = pontuacao;
             recordeTexto.textContent = recorde;
             localStorage.setItem("recorde", recorde);
+        }
+
+        if (pontuacao > melhorSessao) {
+            melhorSessao = pontuacao;
+            melhorSessaoTexto.textContent = melhorSessao;
         }
 
         nomeJogador.value = "";
@@ -144,6 +181,10 @@ function atualizarRanking() {
     }).join("");
 }
 
+jogarAgora.addEventListener("click", mostrarJogo);
+
+voltarInicio.addEventListener("click", mostrarInicio);
+
 adivinhar.addEventListener("click", fazerPalpite);
 
 novoJogo.addEventListener("click", iniciarJogo);
@@ -165,4 +206,3 @@ nomeJogador.addEventListener("keydown", function(evento) {
 dificuldade.addEventListener("change", iniciarJogo);
 
 atualizarRanking();
-iniciarJogo();

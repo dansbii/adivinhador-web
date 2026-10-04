@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fbff);
+    color: #172033;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+.jogo {
+    width: 100%;
+    max-width: 520px;
+    background: #ffffff;
+    padding: 38px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(30, 60, 100, 0.15);
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    color: #1769e0;
+    font-size: 30px;
+    letter-spacing: 1px;
+}
+
+#mensagem {
+    margin: 12px 0 24px;
+    font-size: 22px;
+    font-weight: bold;
+    min-height: 30px;
+    color: #667085;
+}
+
+#mensagem.baixo {
+    color: #1769e0;
+}
+
+#mensagem.alto {
+    color: #e67e22;
+}
+
+#mensagem.acertou {
+    color: #16a34a;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #344054;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 14px 15px;
+    font-size: 16px;
+    border: 2px solid #e4e7ec;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #172033;
+    outline: none;
+    transition: 0.2s;
+}
+
+select:focus,
+input:focus {
+    border-color: #1769e0;
+    box-shadow: 0 0 0 4px rgba(23, 105, 224, 0.1);
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 22px 0;
+}
+
+.informacoes div {
+    background: #f5f8ff;
+    padding: 14px 8px;
+    border-radius: 14px;
+    border: 1px solid #e5edff;
+}
+
+.informacoes span {
+    display: block;
+    color: #667085;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.informacoes strong {
+    display: block;
+    color: #1769e0;
+    font-size: 22px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#adivinhar {
+    background: #1769e0;
+    color: white;
+    box-shadow: 0 6px 15px rgba(23, 105, 224, 0.25);
+}
+
+#adivinhar:hover {
+    background: #1258bd;
+    transform: translateY(-1px);
+}
+
+#novoJogo {
+    background: #eef2f7;
+    color: #344054;
+}
+
+#novoJogo:hover {
+    background: #e2e8f0;
+}
+
+#ranking {
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid #eaecf0;
+}
+
+#ranking h2 {
+    margin: 0 0 15px;
+    font-size: 20px;
+    color: #172033;
+}
+
+#listaRanking p {
+    margin: 8px 0;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 10px;
+    color: #475467;
+}
+
+#listaRanking strong {
+    margin-right: 6px;
+    color: #1769e0;
+}
+
+.nome-area {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #f5f8ff;
+    border: 1px solid #dbe7ff;
+    border-radius: 15px;
+}
+
+.nome-area.visivel {
+    display: block;
+}
+
+.nome-area h2 {
+    margin: 0 0 8px;
+    color: #16a34a;
+}
+
+.nome-area p {
+    color: #667085;
+    margin-bottom: 15px;
+}
+
+#salvarNome {
+    background: #16a34a;
+    color: white;
+}
+
+#salvarNome:hover {
+    background: #12823a;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 14px;
+        align-items: flex-start;
+    }
+
+    .jogo {
+        margin-top: 10px;
+        padding: 28px 20px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #mensagem {
+        font-size: 20px;
+    }
+
+    .informacoes {
+        gap: 8px;
+    }
+
+    .informacoes div {
+        padding: 12px 5px;
+    }
+
+    .informacoes strong {
+        font-size: 19px;
+    }
+
+    button {
+        padding: 14px;
+    }
+}
